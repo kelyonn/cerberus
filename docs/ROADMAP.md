@@ -20,8 +20,8 @@ in whatever blocks appear. Hours listed are for the consensus core; supporting w
 # Phase 1 — Consensus core · ~14h
 
 ### S1 — The log type · **2h** 🔴
-- [ ] `Entry`, `HardState`, `Message`, `Config` types
-- [ ] Log type with **every index calculation behind a method**: `at`,
+- [x] `Entry`, `HardState`, `Message`, `Config` types
+- [x] Log type with **every index calculation behind a method**: `at`,
       `lastIndex`, `lastTerm`, `termAt`, `slice`, `truncateFrom`, `append`
 
 > No raw slice indexing, even though there's no snapshot offset yet. Snapshots
@@ -45,20 +45,20 @@ session tractable.
 ---
 
 ### S3 — Node skeleton · **2h** 🔴
-- [ ] `Node` struct, role enum, `Tick` / `Step` / `Ready` / `Advance`
-- [ ] Role transitions
-- [ ] Universal higher-term rule, checked **first** (`RAFT_DESIGN.md` §2)
-- [ ] Randomized election timeouts from the seeded RNG
+- [x] `Node` struct, role enum, `Tick` / `Step` / `Ready` / `Advance`
+- [x] Role transitions
+- [x] Universal higher-term rule, checked **first** (`RAFT_DESIGN.md` §2)
+- [x] Randomized election timeouts from the seeded RNG
 
 **Read first:** paper §5.1, Figure 2.
 
 ---
 
 ### S4 — Leader election · **3h** 🔴
-- [ ] `RequestVote` send + receive paths
-- [ ] "At least as up-to-date" check (§5.4.1)
-- [ ] Vote counting, majority, promotion
-- [ ] Heartbeats suppressing follower timeouts
+- [x] `RequestVote` send + receive paths
+- [x] "At least as up-to-date" check (§5.4.1)
+- [x] Vote counting, majority, promotion
+- [x] Heartbeats suppressing follower timeouts
 
 > Reset the election timer only when a vote is **granted**, never on denial.
 
@@ -67,19 +67,19 @@ session tractable.
 ---
 
 ### S5 — Log replication · **3h** 🔴
-- [ ] `AppendEntries` send path, `nextIndex` / `matchIndex`
-- [ ] Receive path with **entry-by-entry conflict detection**
-- [ ] `nextIndex` backoff on rejection
-- [ ] `Propose()`
+- [x] `AppendEntries` send path, `nextIndex` / `matchIndex`
+- [x] Receive path with **entry-by-entry conflict detection**
+- [x] `nextIndex` backoff on rejection
+- [x] `Propose()`
 
 **Read first:** paper §5.3, and the Students' Guide.
 
 ---
 
 ### S6 — Commit rule · **2h** 🔴
-- [ ] Majority `matchIndex` **and** `log[N].Term == currentTerm`
-- [ ] No-op entry on election
-- [ ] `CommittedEntries` in `Ready`, `lastApplied`
+- [x] Majority `matchIndex` **and** `log[N].Term == currentTerm`
+- [x] No-op entry on election
+- [x] `CommittedEntries` in `Ready`, `lastApplied`
 
 **Read first:** paper §5.4.2 + Figure 8, traced on paper.
 
