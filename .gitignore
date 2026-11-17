@@ -1,0 +1,34 @@
+# Binaries
+/bin/
+cerberusd
+cerberusctl
+
+# Node data directories — logs, snapshots, hardstate
+/data/
+*.log
+*.snap
+
+# Test output
+*.test
+*.out
+coverage.*
+/testdata/failures/
+
+# Profiling
+*.pprof
+cpu.prof
+mem.prof
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local tooling config
+CLAUDE.md
+.claude/
+
+# Personal study + interview notes — local only
+docs/WEEK0.md
+docs/LEARNING.md
